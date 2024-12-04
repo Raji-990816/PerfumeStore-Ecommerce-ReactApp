@@ -1,4 +1,4 @@
-# Perfume Store
+# PerfumeStore-Ecommerce-ReactApp
 
 
 ## Description
@@ -89,7 +89,3 @@ This project is licensed under the MIT License.
 For any inquiries or support, please contact me at pgranuruddha@gmail.com
 
 ---
-# PerfumeStore-EcommerceApp
-# PerfumeStore-EcommerceApp
-# PerfumeStore-EcommerceApp
-# PerfumeStore-Ecommerce-ReactApp
