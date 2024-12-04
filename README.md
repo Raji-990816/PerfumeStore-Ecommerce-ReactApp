@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Perfume Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
+Perfume Store is an e-commerce application that allows users to browse a curated collection of perfumes, log in, register, and manage their shopping cart. This app includes basic form validation, authentication, and cart management.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features Implemented
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. **Registration Form**
+   - **Fields**: Name, Email, Password.
+   - **Basic validation with fromik & yup**: Ensures fields are filled and email format is correct.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. **Login Form**
+   - **Fields**: Email, Password.
+   - **Basic validation with fromik & yup**: Ensures fields are filled and email format is correct.
 
-### `npm test`
+### 3. **Authentication State**
+   - Manages user authentication state using **React Context**.
+   - Provides feedback for successful login or registration (e.g., success or error messages).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. **Product List Features**
+   - **Display Products**: A hardcoded list of products is shown with details like name, price, description, and image.
 
-### `npm run build`
+### 5. **Shopping Cart Features**
+   - **Add to Cart**: Adds items to the shopping cart.
+   - **View Cart**: Displays items in the cart with their quantity, individual prices, and total price.
+   - **Update Quantity**: Allows users to increase or decrease the quantity of items in the cart.
+   - **Remove from Cart**: Allows users to remove items from the cart.
+   - **Total Cost**: Displays the total cost of items in the cart.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 6. **UI/UX Considerations**
+   - Designed with a **clean and modern UI** for forms, product lists, and shopping cart.
+   - **Basic error handling** and validation feedback for forms and actions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 7. **Bonus Features (Optional but recommended)**
+   - **Client-Side Routing**: Uses **React Router** for navigation between login/register, product list, and cart pages.
+   - **Search and Filter Products**: Allows users to filter products by name, price, or category.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Technologies Used
+- **Frontend**: React, Tailwind CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### How to Run the Application Locally After Cloning It from GitHub
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Clone the repository** to your local machine:
+   
+   ```bash
+   git clone https://github.com/your-username/Perfume-Store.git
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Navigate** to the project directory:
 
-## Learn More
+    cd Perfume-Store
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install the dependencies by running the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    npm install
 
-### Code Splitting
+4. Start the application with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    npm start
+   ```
 
-### Analyzing the Bundle Size
+## Usage
+1. Register/Login: Login with (user@example.com and password)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Browse Products: Use collections and browser fragrances and add to the cart.
 
-### Making a Progressive Web App
+3. Checkout: Once you're ready to purchase, proceed to cart page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Browser Pages: Can navigate through the pages using navbar and homepage.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Work
 
-### Deployment
+- **Responsiveness**: Enhance the responsiveness for tablets and mobile devices. Ensure the application is fully functional and visually appealing on various screen sizes.
+- **Local Storage**: Implement local storage to persist the shopping cart and user authentication state across page reloads, so users do not lose their data when refreshing or reopening the application.
+- **Advanced Features**: Explore adding features like user profiles, order history, and more personalized shopping experiences.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
+This project is licensed under the MIT License.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+For any inquiries or support, please contact me at pgranuruddha@gmail.com
+
+---
+# PerfumeStore-Ecommerce
