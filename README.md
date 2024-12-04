@@ -51,16 +51,19 @@ Perfume Store is an e-commerce application that allows users to browse a curated
 
 2. **Navigate** to the project directory:
 
+   ```bash
     cd Perfume-Store
 
 3. Install the dependencies by running the following command:
 
+   ```bash
     npm install
 
 4. Start the application with:
 
+   ```bash
     npm start
-   ```
+
 
 ## Usage
 1. Register/Login: Login with (user@example.com and password)
@@ -86,4 +89,4 @@ This project is licensed under the MIT License.
 For any inquiries or support, please contact me at pgranuruddha@gmail.com
 
 ---
-# PerfumeStore-Ecommerce
+# PerfumeStore-EcommerceApp
