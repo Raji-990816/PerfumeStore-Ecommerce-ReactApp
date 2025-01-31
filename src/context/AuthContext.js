@@ -3,46 +3,74 @@ import React, { createContext, useState, useContext } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);  
+  const [users, setUsers] = useState(null);  
   const [isAuthenticated, setIsAuthenticated] = useState(false);  
   const [message, setMessage] = useState(''); 
+  const [errors, setErrors] = useState('');
 
   const login = (email, password) => {
-    if (email === 'user@example.com' && password === '123456') {
-      setUser({ email });  
-      setIsAuthenticated(true);
-      setMessage('Login Successful!');
-      setTimeout(() => {
-        setMessage(""); 
-      }, 2000);
+    const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+    const userEmail = existingUsers.some((u) => u.email === email);
+    const userPassword = existingUsers.some((u) => u.password === password);
+
+    if(userEmail){
+      if (userEmail && userPassword) { 
+        setUsers({userEmail, userPassword })
+        setIsAuthenticated(true);
+        setMessage('Login Successful!');
+        setTimeout(() => {
+          setMessage(""); 
+        }, 2000);
+      } else {
+        setErrors('Invalid credentials. Please try again.');
+        setTimeout(() => {
+          setErrors(''); 
+        }, 2000);
+      }
     } else {
-      setMessage('Invalid credentials. Please try again.');
+      setErrors('User not recognized! Register now.');
       setTimeout(() => {
-        setMessage(""); 
+        setErrors(''); 
+      }, 2000);    }
+  };
+
+  const register = (name, email, password) => {
+    const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+    const userName = existingUsers.some((u) => u.name === name);
+    const userEmail = existingUsers.some((u) => u.email === email);
+
+    if (userName || userEmail ){
+      setErrors('User already excits! Try unique name, email and password.');
+      setTimeout(() => {
+        setErrors('');
+      }, 2000);
+
+    } else {
+      const updatedUsers = [...existingUsers, {name, email, password} ];
+      localStorage.setItem('users', JSON.stringify(updatedUsers));
+      setUsers(updatedUsers);
+      setMessage('Registration Successful!');
+      setTimeout(() => {
+        setMessage('');
       }, 2000);
     }
   };
 
-  const register = (email, password) => {
-    setUser({ email });
-    setIsAuthenticated(true);
-    setMessage('Registration Successful!');
-    setTimeout(() => {
-      setMessage("");
-    }, 2000);
-  };
-
   const logout = () => {
-    setUser(null);
+    setUsers(null);
     setIsAuthenticated(false);
     setMessage('Logged out successfully.');
     setTimeout(() => {
-      setMessage(""); 
+      setMessage(''); 
     }, 2000);
   };
 
+  const values = {
+    users, isAuthenticated, login, register, logout, message, errors
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, register, logout, message }}>
+    <AuthContext.Provider value={ values }>
       {children}
     </AuthContext.Provider>
   );

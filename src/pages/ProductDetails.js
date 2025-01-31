@@ -26,11 +26,11 @@ const ProductDetails = () => {
   };
 
     return (
-        <div className="flex flex-col items-center py-8 px-4 bg-gray-50 min-h-screen bg-gray-100">
+        <div className="flex flex-col min-h-screen justify-center items-center">
             {isPending && <div className="text-blue-500">Loading...</div>}
             {error && <div className="text-red-500">{error}</div>}
             {frag && (
-                <div className="max-w-4xl bg-white shadow-md rounded-lg overflow-hidden">
+                <div className="max-w-xl mx-10 sm:mx-20 bg-white shadow-xl rounded-lg overflow-hidden">
                     <div className="flex justify-center bg-white p-4">
                         <img
                             src={frag.image}
@@ -40,18 +40,18 @@ const ProductDetails = () => {
                     </div>
 
                     <div className="p-6">
-                        <h2 className="text-3xl font-bold text-gray-800">{frag.name}</h2>
-                        <h4 className="text-xl text-black-600 mt-2">{frag.house}</h4>
-                        <p className="text-gray-700 mt-4">{frag.description}</p>
-                        <p className="text-gray-600 mt-4">Size: {frag.size}</p>
-                        <p className="text-gray-600">Release Year: {frag.releaseYear}</p>
-                        <p className="text-orange-600 font-bold text-xl mt-6">
+                        <h2 className="text-md sm:text-lg font-semibold">{frag.name}</h2>
+                        <h4 className="text-sm sm:text-md text-black-600 mt-2">{frag.house}</h4>
+                        <p className="text-xs sm:text-sm text-gray-700 mt-4">{frag.description}</p>
+                        <p className="text-xs sm:text-sm text-gray-600 mt-4">Size: {frag.size}</p>
+                        <p className="text-xs sm:text-sm text-gray-600">Release Year: {frag.releaseYear}</p>
+                        <p className= "text-red-600 font-bold text-sm sm:text-md mt-6">
                             Price: LKR {frag.price.toLocaleString()}
                         </p>
 
                         <button
                             onClick={handleAddToCart}
-                                className={`w-full py-2 rounded-md mt-6 transition duration-300 ${
+                                className={`w-full py-2 text-xs sm:text-sm rounded-md mt-6 transition duration-300 ${
                                     loading
                                     ? "bg-gray-400 text-gray-800 cursor-not-allowed"
                                     : "bg-[#1F2937] text-white hover:bg-[#374151]"
@@ -62,7 +62,7 @@ const ProductDetails = () => {
                         </button>
 
                         {message && (
-                            <div className="mt-4 text-green-600 text-center font-medium">
+                            <div className="mt-4 text-green-600 text-center text-xs sm:text-sm">
                                 {message}
                             </div>
                         )}
