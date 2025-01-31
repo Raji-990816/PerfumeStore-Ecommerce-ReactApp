@@ -19,22 +19,22 @@ const Collection = () => {
   return (
     <div className="bg-gray-100">
       <div
-        className="relative bg-cover bg-center sm:h-[350px] md:h-[400px] lg:h-[250px]"
+        className="background-image"
         style={{ backgroundImage: `url(${images.img5})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4">
-          <h1 className="text-3xl font-bold text-center mb-6">Fragrance Collection</h1>
+        <div className="page-headline">
+          Fragrance Collection
         </div>
       </div>
 
       <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-8">
-        <div className="flex justify-between space-x-6">
-          <div className="w-1/3">
+        <div className= "sm:flex sm:justify-between sm:space-x-6">
+          <div className="w-1/4 jus sm:w-1/3">
             <label className="block text-sm font-medium text-gray-700">Size</label>
             <select
               value={selectedSize}
               onChange={(e) => setSelectedSize(e.target.value)}
-              className="w-full mt-2 border p-2 rounded"
+              className="w-full text-xs sm:text-sm mt-2 border p-2 rounded"
             >
               <option value="">All Sizes</option>
               <option value="30 ml">30 ml</option>
@@ -46,12 +46,12 @@ const Collection = () => {
             </select>
           </div>
 
-          <div className="w-1/3">
+          <div className="w-1/4 sm:w-1/3">
             <label className="block text-sm font-medium text-gray-700">Gender</label>
             <select
               value={selectedGender}
               onChange={(e) => setSelectedGender(e.target.value)}
-              className="w-full mt-2 border p-2 rounded"
+              className="w-full text-xs sm:text-sm mt-2 border p-2 rounded"
             >
               <option value="">All Genders</option>
               <option value="Men">Men</option>
@@ -59,12 +59,12 @@ const Collection = () => {
             </select>
           </div>
 
-          <div className="w-1/3">
+          <div className="w-1/4 jus sm:w-1/3">
             <label className="block text-sm font-medium text-gray-700">Brand</label>
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full mt-2 border p-2 rounded"
+              className="w-full text-xs sm:text-sm mt-2 border p-2 rounded"
             >
               <option value="">All Brands</option>
               {fragrances
@@ -84,7 +84,7 @@ const Collection = () => {
         {filteredFragrances.map((frag) => (
           <div
             key={frag.id}
-            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between"
+            className="bg-white mx-10 sm:mx-0  shadow-md rounded-lg overflow-hidden flex flex-col justify-between"
           >
             <div>
               <img
@@ -95,16 +95,16 @@ const Collection = () => {
             </div>
 
             <div className="p-4 flex-grow">
-              <h3 className="text-xl font-semibold">{frag.name}</h3>
-              <p className="text-gray-600">{frag.house}</p>
-              <p className="text-lg text-orange-600 font-bold mt-2">
+              <h3 className="text-sm sm:text-md font-semibold">{frag.name}</h3>
+              <p className="text-xs sm:text-sm text-gray-700">{frag.house}</p>
+              <p className="text-sm sm:text-md text-red-600 font-bold mt-2">
                 LKR {frag.price.toLocaleString()}
               </p>
             </div>
 
             <div className="mt-auto">
               <Link to={`/collection/${frag.id}`}>
-                <button className="w-full bg-[#1F3357] text-white py-2 hover:bg-[#152B4F]">
+                <button className="w-full text-xs sm:text-sm bg-[#1F3357] text-white py-2 hover:bg-[#152B4F]">
                   View Details
                 </button>
               </Link>

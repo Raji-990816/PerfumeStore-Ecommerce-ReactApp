@@ -7,46 +7,42 @@ export const CartProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0); 
 
   const addToCart = (item, quantity = 1) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+      const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
 
-    if (existingItem) {
-      const updatedCart = cartItems.map(cartItem =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity + quantity }
-          : cartItem
-      );
-      setCartItems(updatedCart);
-    } else {
-      setCartItems([...cartItems, { ...item, quantity }]);
-    }
+      if (existingItem) {
+        const updatedCart = cartItems.map(cartItem => 
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + quantity } : cartItem
+        );
+        setCartItems(updatedCart);
+      } else {
+        setCartItems([...cartItems, { ...item, quantity }]);
+      }
 
-    setTotalPrice(prevPrice => prevPrice + item.price * quantity);
+      setTotalPrice(prevPrice => prevPrice + item.price * quantity);
   };
 
-    const removeFromCart = (id, decrementQuantity = 0) => {
-        const itemToUpdate = cartItems.find(cartItem => cartItem.id === id);
-    
-        if (itemToUpdate.quantity > decrementQuantity) {
+  const removeFromCart = (id, decrementQuantity = 0) => {
+      const itemToUpdate = cartItems.find(cartItem => cartItem.id === id);
+  
+      if (itemToUpdate.quantity > decrementQuantity) {
         setCartItems(
             cartItems.map(cartItem =>
-            cartItem.id === id
-                ? { ...cartItem, quantity: cartItem.quantity - decrementQuantity }
-                : cartItem
+            cartItem.id === id ? { ...cartItem, quantity: cartItem.quantity - decrementQuantity }: cartItem
             )
         );
         setTotalPrice(prevPrice => prevPrice - itemToUpdate.price * decrementQuantity);
-        } else {
+      } else {
         setCartItems(cartItems.filter(cartItem => cartItem.id !== id));
         setTotalPrice(prevPrice => prevPrice - itemToUpdate.price * itemToUpdate.quantity);
-        }
-    };
+      }
+  };
 
   const clearCart = () => {
     setCartItems([]);
     setTotalPrice(0);
   };
 
-  const value = {
+  const values = {
     cartItems,
     totalPrice,
     addToCart,
@@ -54,7 +50,11 @@ export const CartProvider = ({ children }) => {
     clearCart,
   };
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={values}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export const useCart = () => useContext(CartContext);
